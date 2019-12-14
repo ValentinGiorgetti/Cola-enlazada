@@ -1,5 +1,3 @@
-package estructurasdinamicas;
-
 public class ColaEnlazada<tipoDato> {
     
     private int cantidadElementos;
@@ -12,7 +10,7 @@ public class ColaEnlazada<tipoDato> {
     }
     
     public void agregarALaCola(tipoDato dato) {
-        NodoCola<tipoDato> nuevoNodo = new NodoCola<tipoDato>(dato);
+        NodoCola<tipoDato> nuevoNodo = new NodoCola<>(dato);
         if (getPrimerElemento() == null) {
             setPrimerElemento(nuevoNodo);
             setUltimoElemento(nuevoNodo);
