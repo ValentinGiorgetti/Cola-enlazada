@@ -1,78 +1,77 @@
 public class ColaEnlazada<tipoDato> {
     
-    private int cantidadElementos;
-    private NodoCola<tipoDato> primerElemento, ultimoElemento;
+    private int cantidadNodos;
+    private NodoCola<tipoDato> primerNodo, ultimoNodo;
 
     public ColaEnlazada() {
-        setPrimerElemento(null);
-        setUltimoElemento(null);
-        setCantidadElementos(0);
+        setPrimerNodo(null);
+        setUltimoNodo(null);
+        setCantidadNodos(0);
     }
     
     public void agregarALaCola(tipoDato dato) {
         NodoCola<tipoDato> nuevoNodo = new NodoCola<>(dato);
-        if (getPrimerElemento() == null) {
-            setPrimerElemento(nuevoNodo);
-            setUltimoElemento(nuevoNodo);
+        if (getPrimerNodo() == null) {
+            setPrimerNodo(nuevoNodo);
         } else {
-            getUltimoElemento().setSiguiente(nuevoNodo);
-            setUltimoElemento(nuevoNodo);
+            getUltimoNodo().setNodoSiguiente(nuevoNodo);
         }
-        setCantidadElementos(getCantidadElementos() + 1);
+        setUltimoNodo(nuevoNodo);
+        setCantidadNodos(getCantidadNodos() + 1);
     }
     
     public tipoDato quitarDeLaCola() {
         tipoDato datoARetornar = null;
-        if (getPrimerElemento() != null) {
-            datoARetornar = getPrimerElemento().getDato();
-            setPrimerElemento(getPrimerElemento().getSiguiente());
-            setCantidadElementos(getCantidadElementos() - 1);
-        }
+        if (getPrimerNodo() != null) {
+            datoARetornar = getPrimerNodo().getDato();
+            setPrimerNodo(getPrimerNodo().getNodoSiguiente());
+            setCantidadNodos(getCantidadNodos() - 1);
+        } 
         return datoARetornar;
     }
     
     public tipoDato verPrimerElemento() {
         tipoDato datoARetornar = null;
-        if (getPrimerElemento() != null) {
-            datoARetornar = getPrimerElemento().getDato();
-        }        
+        if (getPrimerNodo() != null) {
+            datoARetornar = getPrimerNodo().getDato();
+        }    
         return datoARetornar;
     }
     
     public tipoDato verUltimoElemento() {
         tipoDato datoARetornar = null;
-        if (getUltimoElemento() != null) {
-            datoARetornar = getUltimoElemento().getDato();
+        if (getUltimoNodo() != null) {
+            datoARetornar = getUltimoNodo().getDato();
         }        
         return datoARetornar;
     }    
     
     public boolean estaVacia() {
-        return cantidadElementos == 0;
+        return cantidadNodos == 0;
     }
 
-    public int getCantidadElementos() {
-        return cantidadElementos;
+    public int getCantidadNodos() {
+        return cantidadNodos;
     }
 
-    public void setCantidadElementos(int cantidadElementos) {
-        this.cantidadElementos = cantidadElementos;
+    public void setCantidadNodos(int cantidadNodos) {
+        this.cantidadNodos = cantidadNodos;
     }
 
-    public NodoCola<tipoDato> getPrimerElemento() {
-        return primerElemento;
+    public NodoCola<tipoDato> getPrimerNodo() {
+        return primerNodo;
     }
 
-    public void setPrimerElemento(NodoCola<tipoDato> primerElemento) {
-        this.primerElemento = primerElemento;
+    public void setPrimerNodo(NodoCola<tipoDato> primerNodo) {
+        this.primerNodo = primerNodo;
     }
 
-    public NodoCola<tipoDato> getUltimoElemento() {
-        return ultimoElemento;
+    public NodoCola<tipoDato> getUltimoNodo() {
+        return ultimoNodo;
     }
 
-    public void setUltimoElemento(NodoCola<tipoDato> ultimoElemento) {
-        this.ultimoElemento = ultimoElemento;
+    public void setUltimoNodo(NodoCola<tipoDato> ultimoNodo) {
+        this.ultimoNodo = ultimoNodo;
     }
     
 }
