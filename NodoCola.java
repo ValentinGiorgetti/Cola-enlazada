@@ -1,5 +1,3 @@
-package estructurasdinamicas;
-
 public class NodoCola<tipoDato> {
     
     private tipoDato dato;
