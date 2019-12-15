@@ -11,7 +11,7 @@ public class ColaEnlazada<tipoDato> {
     
     public void agregarALaCola(tipoDato dato) {
         NodoCola<tipoDato> nuevoNodo = new NodoCola<>(dato);
-        if (getPrimerNodo() == null) {
+        if (estaVacia()) {
             setPrimerNodo(nuevoNodo);
         } else {
             getUltimoNodo().setNodoSiguiente(nuevoNodo);
