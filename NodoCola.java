@@ -1,11 +1,11 @@
 public class NodoCola<tipoDato> {
     
     private tipoDato dato;
-    private NodoCola<tipoDato> siguiente;
+    private NodoCola<tipoDato> nodoSiguiente;
 
     public NodoCola(tipoDato dato) {
         setDato(dato);
-        setSiguiente(null);
+        setNodoSiguiente(null);
     }
 
     public tipoDato getDato() {
@@ -16,12 +16,12 @@ public class NodoCola<tipoDato> {
         this.dato = dato;
     }
 
-    public NodoCola<tipoDato> getSiguiente() {
-        return siguiente;
+    public NodoCola<tipoDato> getNodoSiguiente() {
+        return nodoSiguiente;
     }
 
-    public void setSiguiente(NodoCola<tipoDato> siguiente) {
-        this.siguiente = siguiente;
+    public void setNodoSiguiente(NodoCola<tipoDato> nodoSiguiente) {
+        this.nodoSiguiente = nodoSiguiente;
     }
     
 }
