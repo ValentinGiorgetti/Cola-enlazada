@@ -27,6 +27,9 @@ public class ColaEnlazada<tipoDato> {
             setPrimerNodo(getPrimerNodo().getNodoSiguiente());
             setCantidadNodos(getCantidadNodos() - 1);
         } 
+        if (getPrimerNodo() == null)  {
+            setUltimoNodo(null);
+        }        
         return datoARetornar;
     }
     
