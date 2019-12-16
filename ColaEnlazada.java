@@ -11,7 +11,7 @@ public class ColaEnlazada<tipoDato> {
     
     public void agregarALaCola(tipoDato dato) {
         NodoCola<tipoDato> nuevoNodo = new NodoCola<>(dato);
-        if (estaVacia()) {
+        if (getPrimerNodo() == null) {
             setPrimerNodo(nuevoNodo);
         } else {
             getUltimoNodo().setNodoSiguiente(nuevoNodo);
@@ -22,14 +22,14 @@ public class ColaEnlazada<tipoDato> {
     
     public tipoDato quitarDeLaCola() {
         tipoDato datoARetornar = null;
-        if (getPrimerNodo() != null) {
+        if (!estaVacia()) {
             datoARetornar = getPrimerNodo().getDato();
             setPrimerNodo(getPrimerNodo().getNodoSiguiente());
             setCantidadNodos(getCantidadNodos() - 1);
         } 
-        if (getPrimerNodo() == null)  {
+        if (estaVacia()) {
             setUltimoNodo(null);
-        }        
+        }
         return datoARetornar;
     }
     
@@ -50,7 +50,7 @@ public class ColaEnlazada<tipoDato> {
     }    
     
     public boolean estaVacia() {
-        return cantidadNodos == 0;
+        return (getCantidadNodos() == 0);       
     }
 
     public int getCantidadNodos() {
